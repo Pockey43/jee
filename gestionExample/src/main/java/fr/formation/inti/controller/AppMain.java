@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.formation.inti.config.AppConfiguration;
@@ -18,14 +18,22 @@ public class AppMain {
 	public static void main(String[] args) {
 		// Creating a Context Application object by reading
 		// the configuration of the 'AppConfiguration' class.
-		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
-
-		IEmployeeService service = context.getBean("employeeService", EmployeeService.class);
-
+		ConfigurableApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class); //passage par annotation
+//		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml"); // passage
+																												// par
+																												// fichier
+																												// xml
+		IEmployeeService service = context.getBean("empServ", EmployeeService.class);
+		//empServ, employeeDao
 		List<Employee> employees = service.findAll();
+		employees.forEach(log::info);
 
-		for (Employee e : employees)
-			log.info("-------------" + e);
+//		for (Employee e : employees)
+//			log.info("-------------" + e);
+
+		context.close();
+		
+
 	}
 
 }
