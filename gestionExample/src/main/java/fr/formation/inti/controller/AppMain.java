@@ -8,6 +8,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import fr.formation.inti.config.AppConfiguration;
+import fr.formation.inti.dto.EmployeeRegister;
 import fr.formation.inti.entity.Employee;
 import fr.formation.inti.service.EmployeeService;
 import fr.formation.inti.service.IEmployeeService;
@@ -32,6 +33,10 @@ public class AppMain {
 //			log.info("-------------" + e);
 
 		context.close();
+		
+		EmployeeRegister empr = new EmployeeRegister();
+		
+		
 		
 
 	}

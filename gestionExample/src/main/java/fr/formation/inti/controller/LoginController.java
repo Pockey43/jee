@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.inti.dto.EmployeeRegister;
 import fr.formation.inti.entity.Employee;
 import fr.formation.inti.entity.User;
 import fr.formation.inti.service.IEmployeeService;
@@ -22,6 +23,8 @@ public class LoginController {
 	
 	@Autowired
 	IEmployeeService eservice;
+	
+
 	
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public String login(Model model) {
@@ -39,6 +42,18 @@ public class LoginController {
 		model.addAttribute("emp", employee);
 		return "accueil";
 	}
+	
+	@RequestMapping(value = {"/login1"}, method = RequestMethod.POST)
+	public String login2(Model model, HttpServletRequest request) {
+
+		return "register";
+	}
+	
+//	@RequestMapping(value = {"/register"}, method = RequestMethod.POST)
+//	public String register(Model model, HttpServletRequest request) {
+//
+//		return "register";
+//	}
 	
 	@RequestMapping(value = {"/login"}, method = RequestMethod.POST)
 	public String login2(Model model,@RequestParam("login") String login,@RequestParam("password") String password, HttpServletRequest request) {

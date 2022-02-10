@@ -84,7 +84,7 @@
 					<button type="submit" class="btn btn-black">
 						<spring:message code="label.login" />
 					</button>
-					<button type="submit" class="btn btn-black">
+					<button type="submit" class="btn btn-black" formaction="register" formmethod="get">
 						<spring:message code="label.register" />
 					</button>
 
