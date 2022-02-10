@@ -22,12 +22,13 @@
 
 <div class="sidenav">
 
-<div style="text-align: center;padding:5px 0;margin:0;">
-       <a href="${pageContext.request.contextPath}/login?lang=en"> (English)</a>
-       &nbsp;&nbsp;
-       <a href="${pageContext.request.contextPath}/login?lang=fr"> (French)</a>
-       
-    </div>
+<div style="text-align: center; padding: 5px 0; margin: 0;">
+			<a class="btn btn-light"
+				href="${pageContext.request.contextPath}/login1?lang=en"> English
+			</a> &nbsp;&nbsp; <a class="btn btn-light"
+				href="${pageContext.request.contextPath}/login1?lang=fr">
+				Français</a>
+		</div>
     
          <div class="login-main-text">
             <h2><spring:message code="label.hello"/>  </h2>
@@ -41,7 +42,14 @@
             
                <h1>
                <br>
-               ${user} </h1>
+               <spring:message code="label.userName" /> : ${user.login} <br>
+               <spring:message code="label.associated" /><br>
+               <spring:message code="label.firstName" /> : ${emp.firstName}<br>
+               <spring:message code="label.lastName" /> : ${emp.lastName}<br>
+               <spring:message code="label.startDate" /> : ${emp.startDate} <br>
+               <spring:message code="label.title" /> : ${emp.title} <br>
+               
+                 </h1>
         </div>
       </div>
       

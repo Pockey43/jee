@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.springframework.context.annotation.Scope;
+
 //Table base de donnée   T_User
 @Entity
 @Table(name="t_user")

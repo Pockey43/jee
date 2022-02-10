@@ -28,6 +28,8 @@ public class Employee {
 	private String lastName;
 	@Column(name = "start_date")
 	private Date startDate;
+	@Column(name = "title")
+	private String title;
 	
 	@ManyToOne
 	@JoinColumn(name = "dept_id", nullable = false)
@@ -151,5 +153,15 @@ public class Employee {
 	public Employee() {
 		super();
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	
 
 }
