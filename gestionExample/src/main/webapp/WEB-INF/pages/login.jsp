@@ -36,7 +36,21 @@
             <%= new Date() %>
          </div>
       </div>
+      
+       <div class="btn-group dropleft" style="float: right">
+		<button class="btn btn-secondary dropdown-toggle" type="button"
+			id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="false">
+			<i class="fas fa-globe"></i>
+		</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a href="${pageContext.request.contextPath}/index?lang=en"> English</a>
+			<a href="${pageContext.request.contextPath}/index?lang=fr"> French</a>
+
+		</div>
+	</div>
       <div class="main">
+     
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
                <form action="login" method="post">
