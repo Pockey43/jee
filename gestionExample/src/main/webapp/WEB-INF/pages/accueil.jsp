@@ -39,7 +39,7 @@
       <div class="main">
          <div class="col-md-6 col-sm-12">
             
-               <h1>${message }
+               <h1>
                <br>
                ${user} </h1>
         </div>

@@ -27,9 +27,11 @@ public class LoginController {
 	@RequestMapping(value = {"/login"}, method = RequestMethod.POST)
 	public String login2(Model model,@RequestParam("login") String login,@RequestParam("password") String password) {
 		
-		
-
-		User user = uservice.findByLoginAndPassword(login, password);
+		User user=null;
+		try {
+			user = uservice.findByLoginAndPassword(login, password);
+		}
+		catch(Exception nre){}
 		if(user != null) {
 			model.addAttribute("user", user);
 			return "accueil";
