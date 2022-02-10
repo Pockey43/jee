@@ -6,7 +6,8 @@
 	<bean id="daoEmployee" name="dao" class="fr.formation.inti.dao.EmployeeDao" ></bean>
 
 	<bean id="serviceEmployee"  class="fr.formation.inti.service.EmployeeService" autowire="byName">
-
+	
+	
 	</bean>
 	
 	

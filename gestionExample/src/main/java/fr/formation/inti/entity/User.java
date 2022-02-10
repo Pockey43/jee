@@ -15,14 +15,14 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_user")
+	@Column(name = "idtuser")
 	private Integer userId;
 	private String login;
 	private String password;
 	@OneToOne
 	@JoinColumn(name = "emp_id", nullable = false)
 	private Employee emp;
-	@Column(name = "connection_number")
+	@Column(name = "connectionNumber")
 	private Integer connectionNumber;
 	
 	

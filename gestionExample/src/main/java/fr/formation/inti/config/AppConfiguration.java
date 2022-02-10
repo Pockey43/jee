@@ -1,20 +1,26 @@
 package fr.formation.inti.config;
 
+import java.util.Locale;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceView;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -74,5 +80,25 @@ public class AppConfiguration {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	
+	@Bean(name = "messageSource")
+	public MessageSource getMessageResource()  {
+		ReloadableResourceBundleMessageSource messageResource= new ReloadableResourceBundleMessageSource();
+		
+		// Read i18n/messages_xxx.properties file.
+		// For example: i18n/messages_en.properties
+		messageResource.setBasename("classpath:i18n/messages");
+		messageResource.setDefaultEncoding("UTF-8");
+		return messageResource;
+	}
+	
+	@Bean(name = "localeResolver")
+	public LocaleResolver getLocaleResolver()  {
+		
+		SessionLocaleResolver resolver = new SessionLocaleResolver();
+		resolver.setDefaultLocale(Locale.FRENCH); //setup default locale
+		return resolver;
+		
+	} 
 
 }

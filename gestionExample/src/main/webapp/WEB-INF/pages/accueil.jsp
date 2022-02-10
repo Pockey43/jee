@@ -23,9 +23,9 @@
 <div class="sidenav">
 
 <div style="text-align: center;padding:5px 0;margin:0;">
-       <a href="${pageContext.request.contextPath}/index?lang=en"> (English)</a>
+       <a href="${pageContext.request.contextPath}/login?lang=en"> (English)</a>
        &nbsp;&nbsp;
-       <a href="${pageContext.request.contextPath}/index?lang=fr"> (French)</a>
+       <a href="${pageContext.request.contextPath}/login?lang=fr"> (French)</a>
        
     </div>
     
@@ -38,27 +38,20 @@
       </div>
       <div class="main">
          <div class="col-md-6 col-sm-12">
-            <div class="login-form">
-               <form action="login" method="post">
-                  <div class="form-group">
-                     <label><spring:message code="label.userName"/></label>
-                     
-                     <input type="text" class="form-control" placeholder="User Name" name="login">
-                  </div>
-                  <div class="form-group">
-                     <label><spring:message code="label.password"/></label>
-                     <input type="password" class="form-control" placeholder="Password" name="password">
-                  </div>
-                  <spring:message code="label.submit" var="labelSubmit"/>
-                  <button type="submit" class="btn btn-black"><spring:message code="label.login"/></button>
-                  
-               </form>
-            </div>
-         </div>
-         <h2 style="color:red">${message }</h2>
+            
+               <h1>${message }
+               <br>
+               ${user} </h1>
+        </div>
       </div>
+      
 
     
     
 </body>
 </html>
+
+   
+         
+            
+            
