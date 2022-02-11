@@ -2,6 +2,7 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="s"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
@@ -37,6 +38,12 @@
 			<h2>
 				<s:message code="label.hello" />
 			</h2>
+			
+			<h3>
+				<c:forEach var = "e" begin = "1" end = "5">
+	         	Item <c:out value = "${i}"/><p>
+	      		</c:forEach>
+      		</h3>
 
 			<br>
 			<%=new Date()%>
@@ -47,6 +54,7 @@
          <div class="col-md-6 col-sm-12">
             <div class="login-form">
                <h1> ${emp}</h1>
+               
             </div>
          </div>
       </div>

@@ -18,15 +18,16 @@ import fr.formation.inti.entity.Employee;
 
 public class EmployeeRegister extends Employee {
 	@Min(value=7,message="age must be between 7 and 77")
-	@Max(value=77,message="age must be between 7 and 77")
-	@NotNull(message="age required")
+	@Max(value=77)
+	@NotNull
 	private Integer age;
-	@Size(min=1,message="e-mail required")
+	@NotNull
 	private String email;
+	@NotNull
 	private String gender;
 	
-	@Size(min=1,message="{Size.employeeRegister.password}")  
-	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message="Password must contain : 1 uppercase, 1 lowercase, 1 special character, 1 number")
+	@NotNull  
+	@Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{8,}$")
 	private String password;
 
 
@@ -43,6 +44,7 @@ public class EmployeeRegister extends Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	public String getGender() {
 		return gender;
 	}
@@ -71,7 +73,7 @@ public class EmployeeRegister extends Employee {
 	}
 	@Override
 	public String toString() {
-		return "Employee : <br>"+gender+". " +super.getFirstName() + " " + super.getLastName() +"<br>Age=" + age + "<br>email=" + email + "<br>Title=" + super.getTitle();
+		return "Employee : <br>"+gender+". " +super.getFirstName() + " " + super.getLastName() +"<br>Age=" + age + "<br>email=" + email + "<br>Title=" + super.getTitle() + "<br>"+super.getDepartment();
 	}
 	
 	

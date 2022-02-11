@@ -57,14 +57,15 @@ color : red
 
 			<form:form action="register" modelAttribute="emp" method="post"> 
 				<spring:message code="label.male" />: <form:radiobutton path="gender" value="M"/>
-				<spring:message code="label.female" />: <form:radiobutton path="gender" value="F"/> 
+				<spring:message code="label.female" />: <form:radiobutton path="gender" value="Mme"/> 
+				<form:errors path="gender" cssClass="error" />
 				<br>
 				<br>
 				<spring:message code="label.firstName" />: <form:input path="firstName" />
 				<form:errors path="firstName" cssClass="error" />
 				<br>
 				<br>  
-				<spring:message code="label.firstName" />(*) : <form:input path="lastName" />
+				<spring:message code="label.lastName" />(*) : <form:input path="lastName" />
 				<form:errors path="lastName" cssClass="error" />
 				<br>
 				<br>
@@ -79,16 +80,31 @@ color : red
 				<form:errors path="password" cssClass="error" />
 				<br>
 				<br>
-				<spring:message code="label.title" />: <form:select path="title">  
-				<form:option value="select" label="----- Select a title -----"/>
+				<spring:message code="label.title" />: 
+				<form:select path="title">  
+				<form:option value="NONE" label="----- Select a title -----"/>
 		        <form:option value="Engineer" label="Engineer"/>  
 		        <form:option value="Dev" label="Dev"/>  
 		        <form:option value="Professor" label="Professor"/>  
 		        <form:option value="Student" label="Student"/>  
 		        <form:option value="Intern" label="Intern"/>
-		        </form:select>  
+		        </form:select> 
+		        <form:errors path="title" cssClass="error" /> 
 		        <br>
 		        <br>  
+		        <spring:message code="label.department" />: 
+				<form:select path="department.name">  
+				<form:option value="NONE" label="----- Select a department -----"/>
+		        <form:option value="Operations" label="Operations"/>  
+		        <form:option value="Loans" label="Loans"/>  
+		        <form:option value="Administration" label="Administration"/>  
+		        <form:option value="It" label="It"/>  
+		        <form:option value="Research" label="Research"/>
+		        <form:option value="development" label="development"/>
+		        </form:select> 
+		        <form:errors path="department.name" cssClass="error" /> 
+		        <br>
+		        <br> 
 				<spring:message code="label.startDate" />:(*): <form:input type="Date" path="startDate" />
 				<form:errors path="startDate" cssClass="error" />
 				<button type="submit" class="btn btn-black"  >

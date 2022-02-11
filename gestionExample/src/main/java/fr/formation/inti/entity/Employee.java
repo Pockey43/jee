@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,16 +29,18 @@ public class Employee {
 	private int empId;
 	
 	@Column(name = "first_name")
-	@Size(min=1,message="required")
 	private String firstName;
 	
 	@Column(name = "last_name")
+	@Size(min=1)
 	private String lastName;
 	
 	@Column(name = "start_date")
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date startDate;
 	@Column(name = "title")
+	@NotNull
+	@Pattern(regexp = "(\\bEngineer\\b)|(\\bDev\\b)|(\\bProfessor\\b)|(\\bStudent\\b)|(\\bIntern\\b)")
 	private String title;
 	
 	@ManyToOne

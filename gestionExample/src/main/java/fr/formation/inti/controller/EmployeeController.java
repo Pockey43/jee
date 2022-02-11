@@ -1,5 +1,7 @@
 package fr.formation.inti.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
@@ -52,7 +54,16 @@ public class EmployeeController {
     { 
 		EmployeeRegister emp=(EmployeeRegister) request.getSession().getAttribute("emp");
 		model.addAttribute("emp", emp);
-          
+		Employee emp1= new Employee();
+		emp1.setFirstName(emp.getFirstName());
+		emp1.setLastName(emp.getLastName());
+		emp1.setStartDate(emp.getStartDate());
+		emp1.setDepartment(emp.getDepartment());
+		emp1.setTitle(emp.getTitle());
+		eservice.save(emp1);
+        
+		List<Employee> employees = eservice.findAll();
+		model.addAttribute("employees", employees);
         return "index"; 
     }
 	
